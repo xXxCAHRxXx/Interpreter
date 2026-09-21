@@ -1,3 +1,3 @@
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(interpreter main.cpp)
 
-target_include_directories(${PROJECT_NAME} PUBLIC ${PROJECT_SOURCE_DIR})
+target_link_libraries(interpreter PRIVATE runtime parser binary_operator ast value error)
