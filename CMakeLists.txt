@@ -26,3 +26,9 @@ FetchContent_MakeAvailable(json GSL)
 
 add_subdirectory(lib)
 add_subdirectory(bin)
+
+include(CTest)
+
+if(BUILD_TESTING)
+    add_subdirectory(tests)
+endif()
