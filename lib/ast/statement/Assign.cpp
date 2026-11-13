@@ -7,8 +7,7 @@
 
 Assign::Assign(std::string name, IExprPtr value)
 : name_(std::move(name))
-, value_(std::move(value))
-{ }
+, value_(std::move(value)) { }
 
 const std::string& Assign::GetName() const noexcept {
     return name_;

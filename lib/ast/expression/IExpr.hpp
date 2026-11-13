@@ -1,20 +1,21 @@
 #pragma once
 
 #include <memory>
+
 #include <gsl/pointers>
 
 class IExprVisitor;
 
 class IExpr {
-    public:
+public:
     IExpr(const IExpr&) = delete;
     IExpr& operator=(const IExpr&) = delete;
-    
+
     virtual void Accept(IExprVisitor& visitor) const = 0;
-    
+
     virtual ~IExpr() = default;
-    
-    protected:
+
+protected:
     IExpr() = default;
 };
 

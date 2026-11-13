@@ -5,8 +5,7 @@
 
 While::While(IExprPtr cond, IStmtPtr body)
 : cond_(std::move(cond))
-, body_(std::move(body))
-{ }
+, body_(std::move(body)) { }
 
 IExprPtr While::GetCond() const noexcept {
     return cond_;

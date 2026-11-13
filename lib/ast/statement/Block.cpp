@@ -4,10 +4,9 @@
 #include "error/LogicError.hpp"
 
 Block::Block(std::vector<IStmtPtr> statements)
-: statements_(std::move(statements))
-{ }
+: statements_(std::move(statements)) { }
 
-const std::vector<IStmtPtr>& Block::GetStatements() const noexcept{
+const std::vector<IStmtPtr>& Block::GetStatements() const noexcept {
     return statements_;
 }
 

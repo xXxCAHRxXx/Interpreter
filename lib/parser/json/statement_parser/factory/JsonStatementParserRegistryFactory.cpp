@@ -14,14 +14,14 @@
 JsonStatementParserRegistry JsonStatementParserRegistryFactory::Create() const {
     JsonStatementParserRegistry::Builder builder;
 
-    builder.Add("skip",  std::make_shared<SkipParser>())
-           .Add("assn",  std::make_shared<AssignParser>())
-           .Add("read",  std::make_shared<ReadParser>())
-           .Add("write", std::make_shared<WriteParser>())
-           .Add("if",    std::make_shared<IfParser>())
-           .Add("while", std::make_shared<WhileParser>())
-           .Add("do",    std::make_shared<DoWhileParser>())
-           .Add("seq",   std::make_shared<SeqParser>());
+    builder.Add("skip", std::make_shared<SkipParser>())
+        .Add("assn", std::make_shared<AssignParser>())
+        .Add("read", std::make_shared<ReadParser>())
+        .Add("write", std::make_shared<WriteParser>())
+        .Add("if", std::make_shared<IfParser>())
+        .Add("while", std::make_shared<WhileParser>())
+        .Add("do", std::make_shared<DoWhileParser>())
+        .Add("seq", std::make_shared<SeqParser>());
 
     return builder.Build();
 }

@@ -1,11 +1,11 @@
 #pragma once
 
-#include <unordered_map>
 #include <string>
 #include <string_view>
+#include <unordered_map>
 
-#include "value/Value.hpp"
 #include "IValueStore.hpp"
+#include "value/Value.hpp"
 
 class Environment final : public IValueStore {
 public:

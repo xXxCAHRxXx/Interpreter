@@ -1,14 +1,13 @@
 #include "ExpressionEvaluator.hpp"
 
-#include "ast/expression/IExpr.hpp"
-#include "error/LogicError.hpp"
-#include "ast/expression/Var.hpp"
-#include "ast/expression/Const.hpp"
 #include "ast/expression/BinOp.hpp"
+#include "ast/expression/Const.hpp"
+#include "ast/expression/IExpr.hpp"
+#include "ast/expression/Var.hpp"
+#include "error/LogicError.hpp"
 
-ExpressionEvaluator::ExpressionEvaluator(IValueReaderPtr values) 
-: values_(std::move(values))
-{ }
+ExpressionEvaluator::ExpressionEvaluator(IValueReaderPtr values)
+: values_(std::move(values)) { }
 
 Value ExpressionEvaluator::Evaluate(IExprPtr expr) {
     expr->Accept(*this);

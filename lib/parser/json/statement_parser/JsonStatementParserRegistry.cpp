@@ -9,8 +9,7 @@ JsonStatementParserRegistry::Builder& JsonStatementParserRegistry::Builder::Add(
                                                                                 IJsonStatementParserPtr parser) {
     bool inserted = parsers_.emplace(std::string(key), std::move(parser)).second;
     if (!inserted) {
-        throw LogicError("JsonStatementParserRegistry::Builder::Add: duplicate key " +
-                         std::string(key));
+        throw LogicError("JsonStatementParserRegistry::Builder::Add: duplicate key " + std::string(key));
     }
 
     return *this;
@@ -41,6 +40,5 @@ IStmtPtr JsonStatementParserRegistry::Parse(const JsonParser& parser, const nloh
 }
 
 JsonStatementParserRegistry::JsonStatementParserRegistry(
-std::unordered_map<std::string, IJsonStatementParserPtr> parsers)
-: parsers_(std::move(parsers))
-{ }
+    std::unordered_map<std::string, IJsonStatementParserPtr> parsers)
+: parsers_(std::move(parsers)) { }

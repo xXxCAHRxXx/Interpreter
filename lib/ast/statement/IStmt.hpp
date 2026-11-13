@@ -1,20 +1,21 @@
 #pragma once
 
 #include <memory>
+
 #include <gsl/pointers>
 
 class IStmtVisitor;
 
 class IStmt {
-    public:
+public:
     IStmt(const IStmt&) = delete;
     IStmt& operator=(const IStmt&) = delete;
-    
+
     virtual void Accept(IStmtVisitor& visitor) const = 0;
-    
+
     virtual ~IStmt() = default;
-    
-    protected:
+
+protected:
     IStmt() = default;
 };
 

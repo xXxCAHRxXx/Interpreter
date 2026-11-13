@@ -3,7 +3,7 @@
 #include "IExpr.hpp"
 #include "binary_operator/IBinaryOperator.hpp"
 
-class BinOp: public IExpr {
+class BinOp : public IExpr {
 public:
     BinOp(IBinaryOperatorPtr op, IExprPtr lhs, IExprPtr rhs);
 
@@ -12,6 +12,7 @@ public:
     IExprPtr GetRhs() const noexcept;
 
     void Accept(IExprVisitor& visitor) const override;
+
 private:
     IBinaryOperatorPtr op_;
     IExprPtr lhs_;
