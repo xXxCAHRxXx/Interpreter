@@ -14,7 +14,7 @@ public:
     IJsonStatementParser(const IJsonStatementParser&) = delete;
     IJsonStatementParser& operator=(const IJsonStatementParser&) = delete;
 
-    virtual IStmtPtr Parse(const nlohmann::json& node, const JsonParser& parser) const = 0;
+    virtual IStmtPtr Parse(const JsonParser& parser, const nlohmann::json& node) const = 0;
 
     virtual ~IJsonStatementParser() = default;
 

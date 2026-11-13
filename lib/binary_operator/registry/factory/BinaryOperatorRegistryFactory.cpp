@@ -1,18 +1,20 @@
 #include "BinaryOperatorRegistryFactory.hpp"
 
-#include "arithmetic/Add.hpp"
-#include "arithmetic/Div.hpp"
-#include "arithmetic/Mod.hpp"
-#include "arithmetic/Mul.hpp"
-#include "arithmetic/Sub.hpp"
-#include "comparison/Eq.hpp"
-#include "comparison/Ge.hpp"
-#include "comparison/Gt.hpp"
-#include "comparison/Le.hpp"
-#include "comparison/Lt.hpp"
-#include "comparison/Ne.hpp"
-#include "logical/And.hpp"
-#include "logical/Or.hpp"
+#include <memory>
+
+#include "binary_operator/arithmetic/Add.hpp"
+#include "binary_operator/arithmetic/Div.hpp"
+#include "binary_operator/arithmetic/Mod.hpp"
+#include "binary_operator/arithmetic/Mul.hpp"
+#include "binary_operator/arithmetic/Sub.hpp"
+#include "binary_operator/comparison/Eq.hpp"
+#include "binary_operator/comparison/Ge.hpp"
+#include "binary_operator/comparison/Gt.hpp"
+#include "binary_operator/comparison/Le.hpp"
+#include "binary_operator/comparison/Lt.hpp"
+#include "binary_operator/comparison/Ne.hpp"
+#include "binary_operator/logical/And.hpp"
+#include "binary_operator/logical/Or.hpp"
 
 BinaryOperatorRegistry BinaryOperatorRegistryFactory::Create() const {
     BinaryOperatorRegistry::Builder builder;

@@ -12,7 +12,7 @@ class ExpressionEvaluator final : public IExprVisitor, public IExpressionEvaluat
 public:
     explicit ExpressionEvaluator(IValueReaderPtr values);
 
-    Value Evaluate(IExprPtr expr);
+    Value Evaluate(IExprPtr expr) override;
 
     void Visit(const Var& node) override;
     void Visit(const Const& node) override;

@@ -1,6 +1,6 @@
 #pragma once
 
 #include "Gt.hpp"
-#include "Negated.hpp"
+#include "binary_operator/logical/Negated.hpp"
 
 using Le = Negated<Gt>;

@@ -14,7 +14,7 @@ public:
     IJsonExpressionParser(const IJsonExpressionParser&) = delete;
     IJsonExpressionParser& operator=(const IJsonExpressionParser&) = delete;
 
-    virtual IExprPtr Parse(const nlohmann::json& node, const JsonParser& parser) const = 0;
+    virtual IExprPtr Parse(const JsonParser& parser, const nlohmann::json& node) const = 0;
 
     virtual ~IJsonExpressionParser() = default;
 

@@ -1,14 +1,14 @@
 #pragma once
 
-#include "binary_operator/BinaryOperatorRegistry.hpp"
+#include "binary_operator/registry/BinaryOperatorRegistry.hpp"
 #include "parser/json/expression_parser/IJsonExpressionParser.hpp"
 
 class BinOpParser final : public IJsonExpressionParser {
 public:
-    explicit BinOpParser(BinaryOperatorRegistryPtr operators);
+    explicit BinOpParser(BinaryOperatorRegistry operators);
 
-    IExprPtr Parse(const nlohmann::json& node, const JsonParser& parser) const override;
+    IExprPtr Parse(const JsonParser& parser, const nlohmann::json& node) const override;
 
 private:
-    BinaryOperatorRegistryPtr operators_;
+    BinaryOperatorRegistry operators_;
 };

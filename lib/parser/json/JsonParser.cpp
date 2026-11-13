@@ -24,9 +24,9 @@ IStmtPtr JsonParser::Parse(std::istream& input) const {
 }
 
 IStmtPtr JsonParser::ParseStatement(const nlohmann::json& node) const {
-    return statements_.Parse(node, *this);
+    return statements_.Parse(*this, node);
 }
 
 IExprPtr JsonParser::ParseExpression(const nlohmann::json& node) const {
-    return expressions_.Parse(node, *this);
+    return expressions_.Parse(*this, node);
 }
