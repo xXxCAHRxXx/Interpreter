@@ -17,7 +17,7 @@ public:
                       IInputPtr input,
                       IOutputPtr output);
 
-    void Execute(IStmtPtr statement);
+    void Execute(IStmtPtr statement) override;
 
     void Visit(const Skip& node) override;
     void Visit(const Assign& node) override;

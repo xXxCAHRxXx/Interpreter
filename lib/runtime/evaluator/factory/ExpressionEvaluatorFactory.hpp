@@ -5,7 +5,7 @@
 
 class ExpressionEvaluatorFactory : public IExpressionEvaluatorFactory {
 public:
-    IExpressionEvaluatorPtr Create(IValueReaderPtr values) const {
+    IExpressionEvaluatorPtr Create(IValueReaderPtr values) const override {
         return std::make_shared<ExpressionEvaluator>(std::move(values));
     }
 };

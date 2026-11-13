@@ -1,6 +1,6 @@
 #pragma once
 
-#include "IBinaryOperator.hpp"
+#include "binary_operator/IBinaryOperator.hpp"
 
 class Gt final : public IBinaryOperator {
 public:

@@ -18,7 +18,7 @@ public:
         std::unordered_map<std::string, IJsonStatementParserPtr> parsers_;
     };
 
-    IStmtPtr Parse(const nlohmann::json& node, const JsonParser& parser) const;
+    IStmtPtr Parse(const JsonParser& parser, const nlohmann::json& node) const;
 
 private:
     explicit JsonStatementParserRegistry(std::unordered_map<std::string, IJsonStatementParserPtr> parsers);

@@ -1,7 +1,7 @@
 #pragma once
 
 #include "Gt.hpp"
-#include "combinator/Swapped.hpp"
-#include "logical/Negated.hpp"
+#include "binary_operator/combinator/Swapped.hpp"
+#include "binary_operator/logical/Negated.hpp"
 
 using Ge = Negated<Swapped<Gt>>;

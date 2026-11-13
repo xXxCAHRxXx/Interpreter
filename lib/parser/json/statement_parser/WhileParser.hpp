@@ -4,5 +4,5 @@
 
 class WhileParser final : public IJsonStatementParser {
 public:
-    IStmtPtr Parse(const nlohmann::json& node, const JsonParser& parser) const override;
+    IStmtPtr Parse(const JsonParser& parser, const nlohmann::json& node) const override;
 };

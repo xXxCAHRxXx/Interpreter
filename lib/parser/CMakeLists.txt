@@ -16,6 +16,9 @@ add_library(parser
     json/expression_parser/BinOpParser.cpp
     json/expression_parser/ConstParser.cpp
     json/expression_parser/VarParser.cpp
+
+    json/statement_parser/factory/JsonStatementParserRegistryFactory.cpp
+    json/expression_parser/factory/JsonExpressionParserRegistryFactory.cpp
 )
 
 target_include_directories(parser PUBLIC ${PROJECT_SOURCE_DIR}/lib)

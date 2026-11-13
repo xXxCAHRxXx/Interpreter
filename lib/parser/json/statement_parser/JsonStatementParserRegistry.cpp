@@ -20,11 +20,11 @@ JsonStatementParserRegistry JsonStatementParserRegistry::Builder::Build() {
     return JsonStatementParserRegistry(std::move(parsers_));
 }
 
-IStmtPtr JsonStatementParserRegistry::Parse(const nlohmann::json& node, const JsonParser& parser) const {
+IStmtPtr JsonStatementParserRegistry::Parse(const JsonParser& parser, const nlohmann::json& node) const {
     if (node.is_string()) {
         auto entry = parsers_.find(node.get<std::string>());
         if (entry != parsers_.end()) {
-            return entry->second->Parse(node, parser);
+            return entry->second->Parse(parser, node);
         }
     }
 
@@ -32,7 +32,7 @@ IStmtPtr JsonStatementParserRegistry::Parse(const nlohmann::json& node, const Js
         for (auto item = node.begin(); item != node.end(); ++item) {
             auto entry = parsers_.find(item.key());
             if (entry != parsers_.end()) {
-                return entry->second->Parse(node, parser);
+                return entry->second->Parse(parser, node);
             }
         }
     }
