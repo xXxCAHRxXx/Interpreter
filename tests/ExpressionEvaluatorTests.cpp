@@ -5,8 +5,8 @@
 #include "ast/expression/BinOp.hpp"
 #include "ast/expression/Const.hpp"
 #include "ast/expression/Var.hpp"
-#include "binary_operator/Add.hpp"
-#include "binary_operator/Mul.hpp"
+#include "binary_operator/arithmetic/Add.hpp"
+#include "binary_operator/arithmetic/Mul.hpp"
 #include "runtime/environment/Environment.hpp"
 #include "runtime/evaluator/ExpressionEvaluator.hpp"
 
