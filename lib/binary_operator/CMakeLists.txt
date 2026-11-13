@@ -1,5 +1,6 @@
 add_library(binary_operator
-    BinaryOperatorRegistry.cpp
+    registry/BinaryOperatorRegistry.cpp
+    registry/factory/BinaryOperatorRegistryFactory.cpp
 )
 
 target_include_directories(binary_operator PUBLIC ${PROJECT_SOURCE_DIR}/lib)
