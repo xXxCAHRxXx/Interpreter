@@ -5,8 +5,7 @@
 
 DoWhile::DoWhile(IStmtPtr body, IExprPtr cond)
 : body_(std::move(body))
-, cond_(std::move(cond)) 
-{ }
+, cond_(std::move(cond)) { }
 
 IStmtPtr DoWhile::GetBody() const noexcept {
     return body_;

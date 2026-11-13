@@ -9,7 +9,5 @@ public:
     IStmtPtr Parse(const JsonParser& parser, const nlohmann::json& node) const override;
 
 private:
-    static void collect(const nlohmann::json& node,
-                        const JsonParser& parser,
-                        std::vector<IStmtPtr>& statements);
+    static void collect(const nlohmann::json& node, const JsonParser& parser, std::vector<IStmtPtr>& statements);
 };

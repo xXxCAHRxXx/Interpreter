@@ -20,8 +20,7 @@ inline std::shared_ptr<JsonParser> CreateTestParser() {
 class StubInput final : public IInput {
 public:
     explicit StubInput(std::vector<Value> values)
-    : values_(std::move(values))
-    { }
+    : values_(std::move(values)) { }
 
     Value Read() override {
         return values_.at(next_++);

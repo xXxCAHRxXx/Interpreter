@@ -3,8 +3,7 @@
 #include "visitor/IExprVisitor.hpp"
 
 Const::Const(const Value& value)
-: value_(value)
-{ }
+: value_(value) { }
 
 const Value& Const::GetValue() const noexcept {
     return value_;

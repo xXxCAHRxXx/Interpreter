@@ -50,11 +50,7 @@ TEST(JsonParserTest, FlattensNestedSequencesIntoBlock) {
 
 TEST(JsonParserTest, BuildsBinaryExpressionTree) {
     auto parser = CreateTestParser();
-    const nlohmann::json node = {
-        {"binop", "+"},
-        {"left", {{"const", 2}}},
-        {"right", {{"var", "x"}}}
-    };
+    const nlohmann::json node = {{"binop", "+"}, {"left", {{"const", 2}}}, {"right", {{"var", "x"}}}};
 
     auto expression = parser->ParseExpression(node);
     auto binary = std::dynamic_pointer_cast<BinOp>(expression.get());
