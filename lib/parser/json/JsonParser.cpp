@@ -8,8 +8,7 @@
 
 JsonParser::JsonParser(JsonStatementParserRegistry statements, JsonExpressionParserRegistry expressions)
 : statements_(std::move(statements))
-, expressions_(std::move(expressions))
-{ }
+, expressions_(std::move(expressions)) { }
 
 IStmtPtr JsonParser::Parse(std::istream& input) const {
     nlohmann::json document;
@@ -24,9 +23,9 @@ IStmtPtr JsonParser::Parse(std::istream& input) const {
 }
 
 IStmtPtr JsonParser::ParseStatement(const nlohmann::json& node) const {
-    return statements_.Parse(node, *this);
+    return statements_.Parse(*this, node);
 }
 
 IExprPtr JsonParser::ParseExpression(const nlohmann::json& node) const {
-    return expressions_.Parse(node, *this);
+    return expressions_.Parse(*this, node);
 }

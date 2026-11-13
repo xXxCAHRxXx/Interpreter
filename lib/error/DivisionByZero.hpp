@@ -5,6 +5,5 @@
 class DivisionByZero final : public RuntimeError {
 public:
     DivisionByZero()
-    : RuntimeError("division by zero")
-    { }
+    : RuntimeError("division by zero") { }
 };

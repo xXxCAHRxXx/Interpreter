@@ -7,7 +7,7 @@
 
 BinaryOperatorRegistry::Builder& BinaryOperatorRegistry::Builder::Add(std::string_view symbol, IBinaryOperatorPtr op) {
     bool inserted = operators_.emplace(std::string(symbol), std::move(op)).second;
-    
+
     if (!inserted) {
         throw LogicError("BinaryOperatorRegistry::Builder::Add: duplicate operator symbol " + std::string(symbol));
     }
@@ -29,7 +29,5 @@ IBinaryOperatorPtr BinaryOperatorRegistry::Get(std::string_view symbol) const {
     return entry->second;
 }
 
-BinaryOperatorRegistry::BinaryOperatorRegistry(
-std::unordered_map<std::string, IBinaryOperatorPtr> operators)
-: operators_(std::move(operators))
-{ }
+BinaryOperatorRegistry::BinaryOperatorRegistry(std::unordered_map<std::string, IBinaryOperatorPtr> operators)
+: operators_(std::move(operators)) { }

@@ -18,11 +18,10 @@ public:
         std::unordered_map<std::string, IJsonExpressionParserPtr> parsers_;
     };
 
-    IExprPtr Parse(const nlohmann::json& node, const JsonParser& parser) const;
+    IExprPtr Parse(const JsonParser& parser, const nlohmann::json& node) const;
 
 private:
-    explicit JsonExpressionParserRegistry(
-        std::unordered_map<std::string, IJsonExpressionParserPtr> parsers);
+    explicit JsonExpressionParserRegistry(std::unordered_map<std::string, IJsonExpressionParserPtr> parsers);
 
     std::unordered_map<std::string, IJsonExpressionParserPtr> parsers_;
 };

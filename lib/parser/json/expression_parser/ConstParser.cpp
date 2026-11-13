@@ -6,7 +6,7 @@
 #include "error/SyntaxError.hpp"
 #include "parser/json/JsonUtils.hpp"
 
-IExprPtr ConstParser::Parse(const nlohmann::json& node, const JsonParser&) const {
+IExprPtr ConstParser::Parse(const JsonParser&, const nlohmann::json& node) const {
     const nlohmann::json& literal = GetField(node, "const");
     if (!literal.is_number_integer()) {
         throw SyntaxError("constant must be an integer");

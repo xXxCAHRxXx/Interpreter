@@ -4,5 +4,5 @@
 
 class ConstParser final : public IJsonExpressionParser {
 public:
-    IExprPtr Parse(const nlohmann::json& node, const JsonParser& parser) const override;
+    IExprPtr Parse(const JsonParser& parser, const nlohmann::json& node) const override;
 };

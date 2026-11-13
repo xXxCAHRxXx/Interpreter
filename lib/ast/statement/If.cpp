@@ -6,8 +6,7 @@
 If::If(IExprPtr cond, IStmtPtr thenBranch, IStmtPtr elseBranch)
 : cond_(std::move(cond))
 , then_(std::move(thenBranch))
-, else_(std::move(elseBranch))
-{ }
+, else_(std::move(elseBranch)) { }
 
 IExprPtr If::GetCond() const noexcept {
     return cond_;

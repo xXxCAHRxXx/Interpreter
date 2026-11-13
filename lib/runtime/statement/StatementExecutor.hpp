@@ -1,5 +1,6 @@
 #pragma once
 
+#include "IStatementExecutor.hpp"
 #include "ast/expression/IExpr.hpp"
 #include "ast/statement/IStmt.hpp"
 #include "ast/statement/visitor/IStmtVisitor.hpp"
@@ -7,17 +8,16 @@
 #include "runtime/evaluator/factory/IExpressionEvaluatorFactory.hpp"
 #include "runtime/io/IInput.hpp"
 #include "runtime/io/IOutput.hpp"
-#include "IStatementExecutor.hpp"
 #include "value/Value.hpp"
 
 class StatementExecutor final : public IStmtVisitor, public IStatementExecutor {
 public:
-    StatementExecutor(IValueStorePtr values, 
+    StatementExecutor(IValueStorePtr values,
                       IExpressionEvaluatorFactoryPtr evaluator_factory_,
                       IInputPtr input,
                       IOutputPtr output);
 
-    void Execute(IStmtPtr statement);
+    void Execute(IStmtPtr statement) override;
 
     void Visit(const Skip& node) override;
     void Visit(const Assign& node) override;

@@ -15,8 +15,8 @@
 #include "ast/statement/Skip.hpp"
 #include "ast/statement/While.hpp"
 #include "ast/statement/Write.hpp"
-#include "binary_operator/Add.hpp"
-#include "binary_operator/Lt.hpp"
+#include "binary_operator/arithmetic/Add.hpp"
+#include "binary_operator/comparison/Lt.hpp"
 #include "runtime/environment/Environment.hpp"
 #include "runtime/evaluator/factory/ExpressionEvaluatorFactory.hpp"
 #include "runtime/statement/StatementExecutor.hpp"
@@ -28,11 +28,7 @@ struct ExecutorFixture {
     : environment(std::make_shared<Environment>())
     , input(std::make_shared<StubInput>(std::move(input_values)))
     , output(std::make_shared<RecordingOutput>())
-    , executor(environment,
-               std::make_shared<ExpressionEvaluatorFactory>(),
-               input,
-               output)
-    { }
+    , executor(environment, std::make_shared<ExpressionEvaluatorFactory>(), input, output) { }
 
     std::shared_ptr<Environment> environment;
     std::shared_ptr<StubInput> input;
@@ -52,7 +48,7 @@ IExprPtr AddExpression(IExprPtr lhs, IExprPtr rhs) {
     return std::make_shared<BinOp>(std::make_shared<Add>(), std::move(lhs), std::move(rhs));
 }
 
-} // namespace
+}
 
 TEST(StatementExecutorTest, AssignsAndWritesValues) {
     ExecutorFixture fixture;
@@ -77,11 +73,8 @@ TEST(StatementExecutorTest, ReadsValueIntoEnvironment) {
 
 TEST(StatementExecutorTest, ExecutesSelectedIfBranch) {
     ExecutorFixture fixture;
-    auto statement = std::make_shared<If>(
-        Constant(1),
-        std::make_shared<Write>(Constant(10)),
-        std::make_shared<Write>(Constant(20))
-    );
+    auto statement =
+        std::make_shared<If>(Constant(1), std::make_shared<Write>(Constant(10)), std::make_shared<Write>(Constant(20)));
 
     fixture.executor.Execute(statement);
 
@@ -95,20 +88,10 @@ TEST(StatementExecutorTest, ExecutesWhileLoopInOrder) {
 
     std::vector<IStmtPtr> body_statements;
     body_statements.push_back(std::make_shared<Write>(Variable("x")));
-    body_statements.push_back(std::make_shared<Assign>(
-        "x",
-        AddExpression(Variable("x"), Constant(1))
-    ));
+    body_statements.push_back(std::make_shared<Assign>("x", AddExpression(Variable("x"), Constant(1))));
 
-    auto condition = std::make_shared<BinOp>(
-        std::make_shared<Lt>(),
-        Variable("x"),
-        Constant(3)
-    );
-    auto loop = std::make_shared<While>(
-        condition,
-        std::make_shared<Block>(std::move(body_statements))
-    );
+    auto condition = std::make_shared<BinOp>(std::make_shared<Lt>(), Variable("x"), Constant(3));
+    auto loop = std::make_shared<While>(condition, std::make_shared<Block>(std::move(body_statements)));
 
     fixture.executor.Execute(loop);
 
@@ -118,10 +101,7 @@ TEST(StatementExecutorTest, ExecutesWhileLoopInOrder) {
 
 TEST(StatementExecutorTest, ExecutesDoWhileBodyAtLeastOnce) {
     ExecutorFixture fixture;
-    auto loop = std::make_shared<DoWhile>(
-        std::make_shared<Write>(Constant(7)),
-        Constant(0)
-    );
+    auto loop = std::make_shared<DoWhile>(std::make_shared<Write>(Constant(7)), Constant(0));
 
     fixture.executor.Execute(loop);
 

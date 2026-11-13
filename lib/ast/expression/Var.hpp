@@ -4,7 +4,7 @@
 
 #include "IExpr.hpp"
 
-class Var final: public IExpr {
+class Var final : public IExpr {
 public:
     explicit Var(std::string name);
 

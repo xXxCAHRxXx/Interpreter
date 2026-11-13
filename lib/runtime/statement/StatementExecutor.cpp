@@ -9,22 +9,20 @@
 #include "ast/statement/While.hpp"
 #include "ast/statement/Write.hpp"
 
-StatementExecutor::StatementExecutor(IValueStorePtr values, 
-                      IExpressionEvaluatorFactoryPtr evaluator,
-                      IInputPtr input,
-                      IOutputPtr output)
+StatementExecutor::StatementExecutor(IValueStorePtr values,
+                                     IExpressionEvaluatorFactoryPtr evaluator,
+                                     IInputPtr input,
+                                     IOutputPtr output)
 : values_(std::move(values))
 , evaluator_factory_(std::move(evaluator))
 , input_(std::move(input))
-, output_(std::move(output))
-{ }
+, output_(std::move(output)) { }
 
 void StatementExecutor::Execute(IStmtPtr statement) {
     statement->Accept(*this);
 }
 
-void StatementExecutor::Visit(const Skip&) {
-}
+void StatementExecutor::Visit(const Skip&) { }
 
 void StatementExecutor::Visit(const Assign& node) {
     values_->Set(node.GetName(), evaluate(node.GetValue()));

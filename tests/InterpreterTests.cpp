@@ -15,12 +15,10 @@ TEST(InterpreterTest, RunsJsonProgramFromInputToOutput) {
     std::istringstream runtime_input("40");
     std::ostringstream runtime_output;
     auto environment = std::make_shared<Environment>();
-    auto executor = std::make_shared<StatementExecutor>(
-        environment,
-        std::make_shared<ExpressionEvaluatorFactory>(),
-        std::make_shared<StreamInput>(runtime_input),
-        std::make_shared<StreamOutput>(runtime_output)
-    );
+    auto executor = std::make_shared<StatementExecutor>(environment,
+                                                        std::make_shared<ExpressionEvaluatorFactory>(),
+                                                        std::make_shared<StreamInput>(runtime_input),
+                                                        std::make_shared<StreamOutput>(runtime_output));
     Interpreter interpreter(CreateTestParser(), executor);
     std::istringstream program(R"(
         {

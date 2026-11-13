@@ -1,13 +1,12 @@
 #include "BinOp.hpp"
 
-#include "visitor/IExprVisitor.hpp"
 #include "error/LogicError.hpp"
+#include "visitor/IExprVisitor.hpp"
 
 BinOp::BinOp(IBinaryOperatorPtr op, IExprPtr lhs, IExprPtr rhs)
 : op_(std::move(op))
 , lhs_(std::move(lhs))
-, rhs_(std::move(rhs)) 
-{ }
+, rhs_(std::move(rhs)) { }
 
 IBinaryOperatorPtr BinOp::GetOperator() const noexcept {
     return op_;

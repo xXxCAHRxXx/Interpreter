@@ -5,7 +5,8 @@
 
 #include "error/InvalidInput.hpp"
 
-StreamInput::StreamInput(std::istream& in) : in_(in) {}
+StreamInput::StreamInput(std::istream& in)
+: in_(in) { }
 
 Value StreamInput::Read() {
     Value value;

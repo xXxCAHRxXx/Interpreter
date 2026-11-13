@@ -5,8 +5,8 @@
 #include "ast/expression/BinOp.hpp"
 #include "ast/expression/Const.hpp"
 #include "ast/expression/Var.hpp"
-#include "binary_operator/Add.hpp"
-#include "binary_operator/Mul.hpp"
+#include "binary_operator/arithmetic/Add.hpp"
+#include "binary_operator/arithmetic/Mul.hpp"
 #include "runtime/environment/Environment.hpp"
 #include "runtime/evaluator/ExpressionEvaluator.hpp"
 
@@ -30,16 +30,10 @@ TEST(ExpressionEvaluatorTest, EvaluatesNestedBinaryExpressions) {
     environment->Set("x", Value(4));
     ExpressionEvaluator evaluator(environment);
 
-    auto multiplication = std::make_shared<BinOp>(
-        std::make_shared<Mul>(),
-        std::make_shared<Var>("x"),
-        std::make_shared<Const>(Value(3))
-    );
-    auto expression = std::make_shared<BinOp>(
-        std::make_shared<Add>(),
-        std::make_shared<Const>(Value(2)),
-        multiplication
-    );
+    auto multiplication =
+        std::make_shared<BinOp>(std::make_shared<Mul>(), std::make_shared<Var>("x"), std::make_shared<Const>(Value(3)));
+    auto expression =
+        std::make_shared<BinOp>(std::make_shared<Add>(), std::make_shared<Const>(Value(2)), multiplication);
 
     EXPECT_EQ(evaluator.Evaluate(expression), Value(14));
 }

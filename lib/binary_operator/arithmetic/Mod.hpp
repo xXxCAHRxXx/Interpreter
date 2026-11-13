@@ -1,6 +1,6 @@
 #pragma once
 
-#include "IBinaryOperator.hpp"
+#include "binary_operator/IBinaryOperator.hpp"
 
 class Mod final : public IBinaryOperator {
 public:

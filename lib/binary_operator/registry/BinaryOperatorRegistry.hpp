@@ -28,5 +28,3 @@ private:
 
     std::unordered_map<std::string, IBinaryOperatorPtr> operators_;
 };
-
-using BinaryOperatorRegistryPtr = gsl::not_null<std::shared_ptr<BinaryOperatorRegistry>>;

@@ -31,5 +31,7 @@
 *.out
 *.app
 
+.clang-format
+
 /build
 /.vscode
