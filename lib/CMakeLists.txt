@@ -3,6 +3,8 @@ add_subdirectory(value)
 add_subdirectory(binary_operator)
 add_subdirectory(ast)
 add_subdirectory(parser)
+add_subdirectory(instruction)
+add_subdirectory(compiler)
 add_subdirectory(runtime)
 
 add_library(lib INTERFACE)
@@ -13,4 +15,6 @@ target_link_libraries(lib INTERFACE
     binary_operator
     ast
     parser
+    instruction
+    compiler
 )

@@ -1,5 +1,8 @@
 add_library(runtime
-    interpreter/Interpreter.cpp
+    interpreter/TreeInterpreter.cpp
+    interpreter/BytecodeInterpreter.cpp
+    interpreter/factory/TreeInterpreterFactory.cpp
+    interpreter/factory/BytecodeInterpreterFactory.cpp
 
     environment/Environment.cpp
 
@@ -7,11 +10,14 @@ add_library(runtime
 
     statement/StatementExecutor.cpp
 
+    machine/Machine.cpp
+    machine/ExecutionContext.cpp
+
     io/StreamInput.cpp
     io/StreamOutput.cpp
 )
 
 target_include_directories(runtime PUBLIC ${PROJECT_SOURCE_DIR}/lib)
 target_link_libraries(runtime
-    PUBLIC ast value error parser Microsoft.GSL::GSL
+    PUBLIC ast value error parser instruction compiler Microsoft.GSL::GSL
 )

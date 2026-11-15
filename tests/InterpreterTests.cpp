@@ -6,7 +6,7 @@
 #include "TestSupport.hpp"
 #include "runtime/environment/Environment.hpp"
 #include "runtime/evaluator/factory/ExpressionEvaluatorFactory.hpp"
-#include "runtime/interpreter/Interpreter.hpp"
+#include "runtime/interpreter/TreeInterpreter.hpp"
 #include "runtime/io/StreamInput.hpp"
 #include "runtime/io/StreamOutput.hpp"
 #include "runtime/statement/StatementExecutor.hpp"
@@ -19,7 +19,7 @@ TEST(InterpreterTest, RunsJsonProgramFromInputToOutput) {
                                                         std::make_shared<ExpressionEvaluatorFactory>(),
                                                         std::make_shared<StreamInput>(runtime_input),
                                                         std::make_shared<StreamOutput>(runtime_output));
-    Interpreter interpreter(CreateTestParser(), executor);
+    TreeInterpreter interpreter(CreateTestParser(), executor);
     std::istringstream program(R"(
         {
           "seq": {
