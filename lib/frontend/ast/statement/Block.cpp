@@ -1,0 +1,15 @@
+#include "Block.hpp"
+
+#include "frontend/ast/statement/visitor/IStmtVisitor.hpp"
+#include "error/LogicError.hpp"
+
+Block::Block(std::vector<IStmtPtr> statements)
+: statements_(std::move(statements)) { }
+
+const std::vector<IStmtPtr>& Block::GetStatements() const noexcept {
+    return statements_;
+}
+
+void Block::Accept(IStmtVisitor& visitor) const {
+    visitor.Visit(*this);
+}

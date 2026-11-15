@@ -1,0 +1,24 @@
+#pragma once
+
+#include <gsl/pointers>
+
+#include "IExpressionEvaluator.hpp"
+#include "frontend/ast/expression/IExpr.hpp"
+#include "frontend/ast/expression/visitor/IExprVisitor.hpp"
+#include "backend/runtime/environment/IValueReader.hpp"
+#include "value/Value.hpp"
+
+class ExpressionEvaluator final : public IExprVisitor, public IExpressionEvaluator {
+public:
+    explicit ExpressionEvaluator(IValueReaderPtr values);
+
+    Value Evaluate(IExprPtr expr) override;
+
+    void Visit(const Var& node) override;
+    void Visit(const Const& node) override;
+    void Visit(const BinOp& node) override;
+
+private:
+    IValueReaderPtr values_;
+    Value result_;
+};
