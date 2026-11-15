@@ -1,7 +1,7 @@
 #include <gtest/gtest.h>
 
 #include "error/UndefinedVariable.hpp"
-#include "runtime/environment/Environment.hpp"
+#include "backend/runtime/environment/Environment.hpp"
 
 TEST(EnvironmentTest, StoresAndUpdatesVariables) {
     Environment environment;

@@ -8,16 +8,16 @@
 
 #include "binary_operator/registry/factory/BinaryOperatorRegistryFactory.hpp"
 #include "error/InterpreterError.hpp"
-#include "parser/IParser.hpp"
-#include "parser/json/JsonParser.hpp"
-#include "parser/json/expression_parser/factory/JsonExpressionParserRegistryFactory.hpp"
-#include "parser/json/statement_parser/factory/JsonStatementParserRegistryFactory.hpp"
-#include "runtime/interpreter/IInterpreter.hpp"
-#include "runtime/interpreter/factory/BytecodeInterpreterFactory.hpp"
-#include "runtime/interpreter/factory/IInterpreterFactory.hpp"
-#include "runtime/interpreter/factory/TreeInterpreterFactory.hpp"
-#include "runtime/io/StreamInput.hpp"
-#include "runtime/io/StreamOutput.hpp"
+#include "frontend/parser/IParser.hpp"
+#include "frontend/parser/json/JsonParser.hpp"
+#include "frontend/parser/json/expression_parser/factory/JsonExpressionParserRegistryFactory.hpp"
+#include "frontend/parser/json/statement_parser/factory/JsonStatementParserRegistryFactory.hpp"
+#include "interpreter/IInterpreter.hpp"
+#include "interpreter/factory/BytecodeInterpreterFactory.hpp"
+#include "interpreter/factory/IInterpreterFactory.hpp"
+#include "interpreter/factory/TreeInterpreterFactory.hpp"
+#include "backend/runtime/io/StreamInput.hpp"
+#include "backend/runtime/io/StreamOutput.hpp"
 
 IParserPtr createParser() {
     JsonExpressionParserRegistryFactory expressions(std::make_shared<BinaryOperatorRegistryFactory>());

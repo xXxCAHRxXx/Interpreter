@@ -1,20 +1,19 @@
 add_subdirectory(error)
 add_subdirectory(value)
 add_subdirectory(binary_operator)
-add_subdirectory(ast)
-add_subdirectory(parser)
-add_subdirectory(instruction)
-add_subdirectory(compiler)
-add_subdirectory(runtime)
+add_subdirectory(frontend)
+add_subdirectory(backend)
+add_subdirectory(interpreter)
 
 add_library(lib INTERFACE)
 target_link_libraries(lib INTERFACE
     error
     value
-    runtime
     binary_operator
     ast
     parser
-    instruction
-    compiler
+    runtime
+    tree
+    bytecode
+    interpreter_lib
 )

@@ -5,11 +5,11 @@
 #include <vector>
 
 #include "binary_operator/registry/factory/BinaryOperatorRegistryFactory.hpp"
-#include "parser/json/JsonParser.hpp"
-#include "parser/json/expression_parser/factory/JsonExpressionParserRegistryFactory.hpp"
-#include "parser/json/statement_parser/factory/JsonStatementParserRegistryFactory.hpp"
-#include "runtime/io/IInput.hpp"
-#include "runtime/io/IOutput.hpp"
+#include "frontend/parser/json/JsonParser.hpp"
+#include "frontend/parser/json/expression_parser/factory/JsonExpressionParserRegistryFactory.hpp"
+#include "frontend/parser/json/statement_parser/factory/JsonStatementParserRegistryFactory.hpp"
+#include "backend/runtime/io/IInput.hpp"
+#include "backend/runtime/io/IOutput.hpp"
 
 inline std::shared_ptr<JsonParser> CreateTestParser() {
     JsonExpressionParserRegistryFactory expressions(std::make_shared<BinaryOperatorRegistryFactory>());

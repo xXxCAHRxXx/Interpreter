@@ -4,13 +4,13 @@
 #include <gtest/gtest.h>
 
 #include "TestSupport.hpp"
-#include "ast/expression/BinOp.hpp"
-#include "ast/expression/Const.hpp"
-#include "ast/expression/Var.hpp"
-#include "ast/statement/Assign.hpp"
-#include "ast/statement/Block.hpp"
-#include "ast/statement/Skip.hpp"
-#include "ast/statement/Write.hpp"
+#include "frontend/ast/expression/BinOp.hpp"
+#include "frontend/ast/expression/Const.hpp"
+#include "frontend/ast/expression/Var.hpp"
+#include "frontend/ast/statement/Assign.hpp"
+#include "frontend/ast/statement/Block.hpp"
+#include "frontend/ast/statement/Skip.hpp"
+#include "frontend/ast/statement/Write.hpp"
 #include "error/SyntaxError.hpp"
 
 TEST(JsonParserTest, ParsesSkipFromString) {

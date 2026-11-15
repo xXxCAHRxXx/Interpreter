@@ -2,13 +2,13 @@
 
 #include <gtest/gtest.h>
 
-#include "ast/expression/BinOp.hpp"
-#include "ast/expression/Const.hpp"
-#include "ast/expression/Var.hpp"
+#include "frontend/ast/expression/BinOp.hpp"
+#include "frontend/ast/expression/Const.hpp"
+#include "frontend/ast/expression/Var.hpp"
 #include "binary_operator/arithmetic/Add.hpp"
 #include "binary_operator/arithmetic/Mul.hpp"
-#include "runtime/environment/Environment.hpp"
-#include "runtime/evaluator/ExpressionEvaluator.hpp"
+#include "backend/runtime/environment/Environment.hpp"
+#include "backend/tree/evaluator/ExpressionEvaluator.hpp"
 
 TEST(ExpressionEvaluatorTest, EvaluatesConstants) {
     auto environment = std::make_shared<Environment>();

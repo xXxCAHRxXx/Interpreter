@@ -4,12 +4,12 @@
 #include <gtest/gtest.h>
 
 #include "TestSupport.hpp"
-#include "runtime/environment/Environment.hpp"
-#include "runtime/evaluator/factory/ExpressionEvaluatorFactory.hpp"
-#include "runtime/interpreter/TreeInterpreter.hpp"
-#include "runtime/io/StreamInput.hpp"
-#include "runtime/io/StreamOutput.hpp"
-#include "runtime/statement/StatementExecutor.hpp"
+#include "backend/runtime/environment/Environment.hpp"
+#include "backend/tree/evaluator/factory/ExpressionEvaluatorFactory.hpp"
+#include "interpreter/TreeInterpreter.hpp"
+#include "backend/runtime/io/StreamInput.hpp"
+#include "backend/runtime/io/StreamOutput.hpp"
+#include "backend/tree/statement/StatementExecutor.hpp"
 
 TEST(InterpreterTest, RunsJsonProgramFromInputToOutput) {
     std::istringstream runtime_input("40");
